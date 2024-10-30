@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:interestin_event_app/navigation_menu.dart';
 
 import '../../../../../utils/constants/sizes.dart';
 import '../../../../../utils/constants/text_strings.dart';
+import '../../password_config/forget_password.dart';
 import '../../signup/signup.dart';
 
 class EventLoginForm extends StatelessWidget {
@@ -53,7 +55,7 @@ class EventLoginForm extends StatelessWidget {
                 ),
                 // Forget Password
                 TextButton(
-                    onPressed: () {},
+                    onPressed: () => Get.to(() => const ForgetPassword()),
                     child: const Text(EventTexts.forgetPassword))
               ],
             ),
@@ -63,7 +65,7 @@ class EventLoginForm extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () => Get.to(() => const NavigationMenu()),
                 child: const Text(EventTexts.signIn),
               ),
             ),

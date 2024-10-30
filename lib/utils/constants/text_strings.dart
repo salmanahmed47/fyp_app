@@ -66,6 +66,6 @@ class EventTexts {
   static const String popularProducts = "Popular Products";
 
   // -- Home
-  static const String homeAppbarTitle = "Good day for shopping";
-  static const String homeAppbarSubTitle = "Taimoor Sikander";
+  static const String homeAppbarTitle = "Good day in University";
+  static const String homeAppbarSubTitle = "Salman Ahmed";
 }
