@@ -17,7 +17,7 @@ class EventPriamaryHeaderContainer extends StatelessWidget {
     return EventCurvedWidget(
       child: Container(
           color: EventColors.primary,
-          padding: const EdgeInsets.all(0),
+          padding: const EdgeInsets.only(bottom: 0),
           child: SizedBox(
             height: 400,
             child: Stack(
@@ -36,6 +36,7 @@ class EventPriamaryHeaderContainer extends StatelessWidget {
                     backgroundColor: EventColors.textWhite.withOpacity(0.1),
                   ),
                 ),
+                child,
               ],
             ),
           )),

@@ -6,16 +6,17 @@ import 'package:interestin_event_app/utils/device/device_utility.dart';
 import '../../../utils/constants/sizes.dart';
 
 class EventAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const EventAppBar(
-      {super.key,
-      this.title,
-      this.showbackArrow = true,
-      this.leadingIcon,
-      this.actions,
-      this.leadingOnPressed});
+  const EventAppBar({
+    super.key,
+    this.title,
+    this.leadingIcon,
+    this.leadingOnPressed,
+    this.actions,
+    this.showBackArrow = false,
+  });
 
   final Widget? title;
-  final bool showbackArrow;
+  final bool showBackArrow;
   final IconData? leadingIcon;
   final List<Widget>? actions;
   final VoidCallback? leadingOnPressed;
@@ -26,7 +27,7 @@ class EventAppBar extends StatelessWidget implements PreferredSizeWidget {
       padding: const EdgeInsets.symmetric(horizontal: EventSizes.md),
       child: AppBar(
         automaticallyImplyLeading: false,
-        leading: showbackArrow
+        leading: showBackArrow
             ? IconButton(
                 onPressed: () => Get.back(),
                 icon: const Icon(Iconsax.arrow_left),
@@ -42,6 +43,5 @@ class EventAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  // TODO: implement preferredSize
   Size get preferredSize => Size.fromHeight(EventDeviceUtils.getAppBarHeight());
 }

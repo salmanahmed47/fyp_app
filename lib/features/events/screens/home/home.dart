@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
-import 'package:interestin_event_app/common/widgets/appbar/appbar.dart';
+import 'package:interestin_event_app/utils/constants/colors.dart';
+import 'package:interestin_event_app/utils/constants/sizes.dart';
 
 import '../../../../common/widgets/custom_shapes/containers/primary_header_container.dart';
-import '../../../../utils/constants/colors.dart';
-import '../../../../utils/constants/text_strings.dart';
+import '../../../../common/widgets/custom_shapes/containers/seach_container.dart';
+import '../../../../common/widgets/texts/section_heading.dart';
+import 'widgets/home_appbar.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  const HomeScreen({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -18,36 +21,48 @@ class HomeScreen extends StatelessWidget {
           EventPriamaryHeaderContainer(
             child: Column(
               children: [
-                EventAppBar(
-                  title: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                // Appbar
+                const EventHomeAppbar(),
+                const SizedBox(height: EventSizes.spaceBtwSections),
+
+                // Searchbar
+                const EventSearchContainer(
+                  text: 'Search for Events',
+                ),
+                const SizedBox(height: EventSizes.spaceBtwSections),
+                // Heading
+                Padding(
+                  padding: const EdgeInsets.only(left: EventSizes.defaultSpace),
+                  child: Column(
                     children: [
-                      Text(
-                        EventTexts.homeAppbarTitle,
-                        style: Theme.of(context)
-                            .textTheme
-                            .labelMedium!
-                            .apply(color: EventColors.grey),
+                      const EventSectionHeading(
+                        title: 'Popular Categries',
+                        showActionButton: false,
                       ),
-                      Text(
-                        EventTexts.homeAppbarSubTitle,
-                        style: Theme.of(context)
-                            .textTheme
-                            .headlineSmall!
-                            .apply(color: EventColors.white),
-                      ),
+                      const SizedBox(height: EventSizes.spaceBtwItems),
+                      // Categories
+                      ListView.builder(
+                        itemCount: 6,
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (_, index) {
+                          Column(
+                            children: [
+                              Container(
+                                width: 56,
+                                height: 56,
+                                padding: const EdgeInsets.all(EventSizes.sm),
+                                decoration: BoxDecoration(
+                                  color: EventColors.white,
+                                  borderRadius: BorderRadius.circular(100),
+                                ),
+                              )
+                            ],
+                          );
+                        },
+                      )
                     ],
                   ),
-                  actions: [
-                    IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Iconsax.shopping_bag,
-                        color: EventColors.white,
-                      ),
-                    ),
-                  ],
-                ),
+                )
               ],
             ),
           ),
