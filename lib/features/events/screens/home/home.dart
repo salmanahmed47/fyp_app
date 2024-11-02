@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:interestin_event_app/utils/constants/colors.dart';
+import 'package:interestin_event_app/utils/constants/image_strings.dart';
 import 'package:interestin_event_app/utils/constants/sizes.dart';
+import 'package:interestin_event_app/utils/helpers/helper_functions.dart';
 
 import '../../../../common/widgets/custom_shapes/containers/primary_header_container.dart';
 import '../../../../common/widgets/custom_shapes/containers/seach_container.dart';
+import '../../../../common/widgets/image_text_widgets/vertical_image_text.dart';
 import '../../../../common/widgets/texts/section_heading.dart';
 import 'widgets/home_appbar.dart';
+import 'widgets/home_categories.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({
@@ -14,7 +18,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
         body: SingleChildScrollView(
       child: Column(
         children: [
@@ -36,30 +40,13 @@ class HomeScreen extends StatelessWidget {
                   child: Column(
                     children: [
                       const EventSectionHeading(
-                        title: 'Popular Categries',
+                        title: 'Popular Societies 🔥',
                         showActionButton: false,
+                        textColor: EventColors.white,
                       ),
                       const SizedBox(height: EventSizes.spaceBtwItems),
                       // Categories
-                      ListView.builder(
-                        itemCount: 6,
-                        scrollDirection: Axis.horizontal,
-                        itemBuilder: (_, index) {
-                          Column(
-                            children: [
-                              Container(
-                                width: 56,
-                                height: 56,
-                                padding: const EdgeInsets.all(EventSizes.sm),
-                                decoration: BoxDecoration(
-                                  color: EventColors.white,
-                                  borderRadius: BorderRadius.circular(100),
-                                ),
-                              )
-                            ],
-                          );
-                        },
-                      )
+                      EventHomeCategories()
                     ],
                   ),
                 )

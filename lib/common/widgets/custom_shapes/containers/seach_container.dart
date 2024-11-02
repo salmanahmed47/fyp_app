@@ -12,44 +12,50 @@ class EventSearchContainer extends StatelessWidget {
       required this.text,
       this.icon = Iconsax.search_normal,
       this.showBackground = true,
-      this.showBorder = true});
+      this.showBorder = true,
+      this.onTap});
 
   final String text;
   final IconData? icon;
   final bool showBackground, showBorder;
+  final VoidCallback? onTap;
   @override
   Widget build(BuildContext context) {
     final dark = EventHelperFunctions.isDarkMode(context);
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: EventSizes.defaultSpace),
-      child: Container(
-        width: EventDeviceUtils.getScreenWidth(context),
-        padding: const EdgeInsets.all(EventSizes.md),
-        decoration: BoxDecoration(
-          color: showBackground
-              ? dark
-                  ? EventColors.dark
-                  : EventColors.light
-              : Colors.transparent,
-          borderRadius: BorderRadius.circular(EventSizes.cardRadiusLg),
-          border: showBorder
-              ? Border.all(
-                  color: Colors.grey,
-                )
-              : null,
-        ),
-        child: Row(
-          children: [
-            Icon(
-              icon,
-              color: EventColors.darkerGrey,
-            ),
-            const SizedBox(width: EventSizes.spaceBtwItems),
-            Text(
-              text,
-              style: Theme.of(context).textTheme.bodySmall,
-            ),
-          ],
+    return GestureDetector(
+      onTap: onTap,
+      child: Padding(
+        padding:
+            const EdgeInsets.symmetric(horizontal: EventSizes.defaultSpace),
+        child: Container(
+          width: EventDeviceUtils.getScreenWidth(context),
+          padding: const EdgeInsets.all(EventSizes.md),
+          decoration: BoxDecoration(
+            color: showBackground
+                ? dark
+                    ? EventColors.dark
+                    : EventColors.light
+                : Colors.transparent,
+            borderRadius: BorderRadius.circular(EventSizes.cardRadiusLg),
+            border: showBorder
+                ? Border.all(
+                    color: Colors.grey,
+                  )
+                : null,
+          ),
+          child: Row(
+            children: [
+              Icon(
+                icon,
+                color: EventColors.darkerGrey,
+              ),
+              const SizedBox(width: EventSizes.spaceBtwItems),
+              Text(
+                text,
+                style: Theme.of(context).textTheme.bodySmall,
+              ),
+            ],
+          ),
         ),
       ),
     );
