@@ -10,7 +10,7 @@ class EventVerticalImageText extends StatelessWidget {
     required this.image,
     required this.title,
     this.textColor = EventColors.white,
-    this.backgroundColor = EventColors.light,
+    this.backgroundColor,
     this.onTap,
   });
 

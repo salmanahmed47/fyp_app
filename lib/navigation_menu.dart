@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:interestin_event_app/features/personlization/screens/settings/settings.dart';
 import 'package:interestin_event_app/utils/helpers/helper_functions.dart';
 
+import 'features/events/screens/events/events.dart';
 import 'features/events/screens/home/home.dart';
+import 'features/events/screens/wishlist/wishlist.dart';
 
 class NavigationMenu extends StatelessWidget {
   const NavigationMenu({super.key});
@@ -44,8 +47,8 @@ class NavigationController extends GetxController {
 
   final screens = [
     const HomeScreen(),
-    Container(color: Colors.green),
-    Container(color: Colors.blue),
-    Container(color: Colors.yellow),
+    const Events(),
+    const FavouritScreen(),
+    const SettingScreen(),
   ];
 }
