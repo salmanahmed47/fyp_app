@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:interestin_event_app/common/styles/shadows.dart';
 import 'package:interestin_event_app/common/widgets/custom_shapes/containers/event_rounded_container.dart';
@@ -9,6 +10,7 @@ import 'package:interestin_event_app/utils/constants/image_strings.dart';
 import 'package:interestin_event_app/utils/constants/sizes.dart';
 import 'package:interestin_event_app/utils/helpers/helper_functions.dart';
 
+import '../../../../features/events/screens/event_details/event_detail.dart';
 import '../../icons/event_circular_icon.dart';
 import '../../texts/event_brand_title_text_with_verified.dart';
 import '../../texts/event_price_text.dart';
@@ -22,7 +24,7 @@ class EventCardVertical extends StatelessWidget {
 
     // Container with side padding, color, edges, radius and shadow
     return GestureDetector(
-      onTap: () {},
+      onTap: () => Get.to(() => const EventDetails()),
       child: Container(
         width: 180,
         padding: const EdgeInsets.all(1),

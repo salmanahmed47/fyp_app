@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:interestin_event_app/utils/constants/colors.dart';
 import 'package:interestin_event_app/utils/device/device_utility.dart';
+import 'package:interestin_event_app/utils/helpers/helper_functions.dart';
 
 import '../../../utils/constants/sizes.dart';
 
@@ -23,6 +25,7 @@ class EventAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    final dark = EventHelperFunctions.isDarkMode(context);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: EventSizes.md),
       child: AppBar(
@@ -30,7 +33,10 @@ class EventAppBar extends StatelessWidget implements PreferredSizeWidget {
         leading: showBackArrow
             ? IconButton(
                 onPressed: () => Get.back(),
-                icon: const Icon(Iconsax.arrow_left),
+                icon: Icon(
+                  Iconsax.arrow_left,
+                  color: dark ? EventColors.white : EventColors.dark,
+                ),
               )
             : leadingIcon != null
                 ? IconButton(
